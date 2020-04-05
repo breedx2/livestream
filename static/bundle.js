@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("'require strict';\n\nconst stats = __webpack_require__(/*! ./stats */ \"./stats.js\");\n\nconsole.log('Client app is starting...');\n\nasync function run(){\n    const streams = await stats.listStreams();\n    console.log(\"We have these streams: \" + streams);\n}\n\n\n//# sourceURL=webpack:///./app.js?");
+eval("'require strict';\n\nconst stats = __webpack_require__(/*! ./stats */ \"./stats.js\");\n\nconsole.log('Client app is starting...');\nrun();\n\nasync function run(){\n    const streams = await stats.listStreams();\n    console.log(\"We have these streams: \" + streams);\n}\n\n\n//# sourceURL=webpack:///./app.js?");
 
 /***/ }),
 
