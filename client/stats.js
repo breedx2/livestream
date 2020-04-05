@@ -6,7 +6,9 @@ function listStreams(){
   fetch('/stat')
   .then(response => {
     return new Promise((fulfill,reject) => {
-      const jsonStr = xml2js.parseString(response.text(), (err, res) => {
+      const xml = response.text();
+      console.log(`This xml: ${xml}`);
+      const jsonStr = xml2js.parseString(xml, (err, res) => {
         if(err){
           return reject(err);
         }
