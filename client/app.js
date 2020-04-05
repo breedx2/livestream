@@ -9,7 +9,12 @@ const streamUrl = 'http://livestream.0x77.net/hls/stream.m3u8';
 
 const player = videojs('video', {
   responsive: true,
-  fill: true
+  fill: true,
+  html: {
+    hls: {
+      overrideNative: !videojs.browser.IS_ANY_SAFARI
+    }
+  }
 });
 player.src({
   src: streamUrl
