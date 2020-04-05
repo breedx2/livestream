@@ -1,7 +1,6 @@
 'require strict';
 
 // require('!style-loader!css-loader!video.js/dist/video-js.css');
-const videojs = require('video.js');
 const stats = require('./stats');
 
 console.log('Client app is starting...');
