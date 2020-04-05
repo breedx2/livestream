@@ -34,7 +34,7 @@ else if (video.canPlayType('application/vnd.apple.mpegurl')) {
 
 async function checkStreams(){
   const streams = await stats.listStreams();
-  console.log("We have these streams: " + streams);
+  console.log("We have these streams: " + JSON.stringify(streams));
   const video = document.getElementById('video');
   if(streams.length > 0) {
     video.style.display = 'inline';
