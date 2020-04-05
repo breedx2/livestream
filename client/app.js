@@ -3,7 +3,6 @@
 const stats = require('./stats');
 
 console.log('Client app is starting...');
-run();
 
 async function run(){
     const streams = await stats.listStreams();
