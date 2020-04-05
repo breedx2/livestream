@@ -19,7 +19,8 @@ async function listStreams(){
     .then(data => {
       // HARD CODED APP NAME HERE IS "live"
       const apps = _.get(data, 'rtmp.server[0].application[0].live', []);
-      return apps.flatMap(app => _.get(app, 'stream[0].name[0]'));
+      return apps.flatMap(app => _.get(app, 'stream[0].name[0]'))
+        .filter(x => x != null);
     });
 }
 
