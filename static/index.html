@@ -3,13 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <title>live streaming</title>
-	<link href="https://vjs.zencdn.net/7.7.5/video-js.css" rel="stylesheet" />
-	<script src="https://vjs.zencdn.net/7.7.5/video.js"></script>
+	<!-- <link href="https://vjs.zencdn.net/7.7.5/video-js.css" rel="stylesheet" />
+	<script src="https://vjs.zencdn.net/7.7.5/video.js"></script> -->
   <link href="livestream.css" rel="stylesheet">
 </head>
 <body>
 
-<video id="video" controls="true"></video>
+<!-- <video id="video" controls="true"></video> -->
+<video-js id="video" class="vjs-default-skin" controls>
+</video-js>
+<!-- <script src="video.js"></script>
+<script src="videojs-http-streaming.min.js"></script>
+<script>
+var player = videojs('video');
+player.play();
+</script> -->
+
 <script src="bundle.js"></script>
 </body>
 </html>

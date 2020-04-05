@@ -15,6 +15,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "@videojs/http-streaming": "^1.13.2",
     "browser-xml2js": "^0.4.19",
     "lodash": "^4.17.15"
   }
