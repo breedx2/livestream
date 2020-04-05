@@ -9,7 +9,8 @@ run();
 const streamUrl = 'http://livestream.0x77.net/hls/stream.m3u8';
 
 const player = videojs('video', {
-  responsive: true
+  responsive: true,
+  fill: true
 });
 player.src({
   src: streamUrl
