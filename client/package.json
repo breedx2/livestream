@@ -15,6 +15,6 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
-    "xml2json": "^0.12.0"
+    "browser-xml2js": "^0.4.19"
   }
 }

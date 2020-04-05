@@ -1,15 +1,21 @@
 'require strict';
 
-const xml2json = require('xml2json');
+const xml2js = require('browser-xml2js');
 
 function listStreams(){
   fetch('/stat')
   .then(response => {
-    const jsonStr = xml2json.toJson(response.text());
-    return JSON.parse(jsonStr);
+    return new Promise((fulfill,reject) => {
+      const jsonStr = xml2js.parseString(response.text(), (err, res) => {
+        if(err){
+          return reject(err);
+        }
+        fulfill(res);
+      });
+    });
   })
   .then(data => {
-    console.log(data);
+    console.log(JSON.stringify(data));
   });
 }
 
