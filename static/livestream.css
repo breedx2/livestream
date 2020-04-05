@@ -1,14 +1,23 @@
+html,body {
+  height: 100%;
+}
+
+.full-height {
+  height: 100%;
+  border: solid pink 2px;
+}
+
 body {
   background: black;
   padding: 0;
   margin: 0;
 }
 
-#vc {
+/* #vc {
   width: 100%;
   margin: 0;
   padding: 0;
-}
+} */
 /* #video {
   width: 100%;
   margin: 0;
