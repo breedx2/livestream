@@ -4,6 +4,11 @@ body {
   margin: 0;
 }
 
+#vc {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
 /* #video {
   width: 100%;
   margin: 0;
