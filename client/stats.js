@@ -18,8 +18,10 @@ async function listStreams(){
       });
     })
     .then(data => {
-      console.log(JSON.stringify(data));
-      return _.get(data, 'rtmp.server[0].application', []).flatMap(y => y.name);
+      // console.log(JSON.stringify(data));
+      // HARD CODED APP NAME HERE IS "live"
+      const apps = _.get(data, 'rtmp.server[0].application[0].live', []);
+      return apps.flatMap(app => app.stream[0].name[0]);
     });
 }
 
