@@ -8,7 +8,6 @@ async function listStreams(){
     .then(response => response.text())
     .then(xml => {
       return new Promise((fulfill,reject) => {
-        // console.log(`This xml: ${xml}`);
         const jsonStr = xml2js.parseString(xml, (err, res) => {
           if(err){
             return reject(err);
@@ -18,10 +17,8 @@ async function listStreams(){
       });
     })
     .then(data => {
-      console.log(JSON.stringify(data));
       // HARD CODED APP NAME HERE IS "live"
       const apps = _.get(data, 'rtmp.server[0].application[0].live', []);
-      console.log(apps);
       return apps.flatMap(app => _.get(app, 'stream[0].name[0]'));
     });
 }
