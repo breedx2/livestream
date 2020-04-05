@@ -17,3 +17,19 @@ streaming server.  This server allows your viewrs to easily
 * secure metadata endpoint(s)
 * how to tell how many viewers there are?  some prior art seems to suggest looking at requests 
   for the playlist file(s) and timing clients out that don't request in N seconds.
+
+# notes
+
+Some misc/unsorted notes about streaming concerns.
+
+```
+ffmpeg -re -f video4linux2 -i /dev/video0 -vcodec libx264 -vprofile baseline -pix_fmt yuv420p -acodec aac -strict -2 -f flv rtmp://livestream.0x77.net/live/stream
+```
+
+or to send a video file:
+```
+ffmpeg -re -i /home/video/somefile.mkv -c:v libx264 -c:a aac -ar 44100 -ac 2 -f flv rtmp://livestream.0x77.net/live/stream
+```
+
+http://livestream.0x77.net/
+
