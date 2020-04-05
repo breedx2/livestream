@@ -15,6 +15,8 @@ streaming server.  This server allows your viewrs to easily
 
 * secure incoming rtmp
 * secure metadata endpoint(s)
+* get recording working
+* TLS
 * how to tell how many viewers there are?  some prior art seems to suggest looking at requests 
   for the playlist file(s) and timing clients out that don't request in N seconds.
 
