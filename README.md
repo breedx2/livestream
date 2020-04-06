@@ -13,12 +13,16 @@ streaming server.  This server allows your viewrs to easily
 
 # todo
 
+* show offline image and hide player when offline, bring back when online
+* change title of page when offline
 * secure incoming rtmp
 * secure metadata endpoint(s)
 * get recording working
 * TLS
+* migrate todos from here to issues :)
 * how to tell how many viewers there are?  some prior art seems to suggest looking at requests 
   for the playlist file(s) and timing clients out that don't request in N seconds.
+* could be cool to build docker images for others
 
 # notes
 
