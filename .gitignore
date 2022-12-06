@@ -1,1 +1,5 @@
-client/node_modules
+env.sh
+.terraform
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
