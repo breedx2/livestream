@@ -1,0 +1,51 @@
+{
+  "instanceDetails": {
+    "name": "livestream",
+    "summary": "",
+    "welcomeMessage": "",
+    "logo": "logo.png",
+    "tags": [
+      "owncast",
+      "streaming",
+      "live"
+    ],
+    "version": "",
+    "nsfw": false,
+    "extraPageContent": "livestream",
+    "streamTitle": "livestream",
+    "socialHandles": null,
+    "customStyles": "see: owncast-extra.css file"
+  },
+  "ffmpegPath": "/usr/bin/ffmpeg",
+  "webServerPort": 8080,
+  "rtmpServerPort": 1935,
+  "s3": {
+    "enabled": false
+  },
+  "videoSettings": {
+    "videoQualityVariants": [
+      {
+        "framerate": 24,
+        "name": "pretty ok",
+        "videoPassthrough": false,
+        "audioPassthrough": true,
+        "videoBitrate": 3500,
+        "audioBitrate": 0,
+        "cpuUsageLevel": 3
+      }
+    ],
+    "latencyLevel": 2
+  },
+  "latencyLevel": 0,
+  "yp": {
+    "enabled": false,
+    "instanceUrl": ""
+  },
+  "chatDisabled": false,
+  "externalActions": [],
+  "supportedCodecs": [
+    "libx264",
+    "h264_vaapi"
+  ],
+  "videoCodec": "libx264"
+}
