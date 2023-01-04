@@ -1,0 +1,16 @@
+.vjs-volume-bar.vjs-slider-horizontal {
+    flex-shrink: 0;
+    width: 35em;
+}
+
+header, footer, #user-content {
+    background-color: #111111;
+}
+
+footer {
+    opacity: 1 !important;
+}
+
+.streamer-name {
+    color: rgb(120, 0, 0) !important;
+}
