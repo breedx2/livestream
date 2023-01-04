@@ -1,0 +1,103 @@
+---
+- name: wait until admin service healthy
+  uri:
+    url: "http://{{ owncast_ip }}:8089/api/admin/status"
+    user: admin
+    password: abc123
+    force_basic_auth: yes
+    follow_redirects: none
+    method: GET
+  register: _result
+  until: _result.status == 200
+  retries: 15
+  delay: 1
+- name: set server summary
+  uri:
+    url: http://{{ owncast_ip }}:8089/api/admin/config/serversummary
+    method: POST
+    user: admin
+    password: abc123
+    force_basic_auth: yes
+    body_format: json
+    body:
+      value: "{{ config['instanceDetails']['summary']}}"
+- name: set server name
+  uri:
+    url: http://{{ owncast_ip }}:8089/api/admin/config/name
+    method: POST
+    user: admin
+    password: abc123
+    force_basic_auth: yes
+    body_format: json
+    body:
+      value: "{{ config['instanceDetails']['name']}}"
+- name: set server logo
+  uri:
+    url: http://{{ owncast_ip }}:8089/api/admin/config/logo
+    method: POST
+    user: admin
+    password: abc123
+    force_basic_auth: yes
+    body_format: json
+    body:
+      value: "data:image/jpeg;base64,{{ lookup('file', 'logo.png') | b64encode }}"
+- name: set server tags
+  uri:
+    url: http://{{ owncast_ip }}:8089/api/admin/config/tags
+    method: POST
+    user: admin
+    password: abc123
+    force_basic_auth: yes
+    body_format: json
+    body:
+      value: "{{ config['instanceDetails']['tags']}}"
+- name: set extra page content
+  uri:
+    url: http://{{ owncast_ip }}:8089/api/admin/config/pagecontent
+    method: POST
+    user: admin
+    password: abc123
+    force_basic_auth: yes
+    body_format: json
+    body:
+      value: "{{ config['instanceDetails']['extraPageContent']}}"
+- name: set custom css to fix the volume slider
+  uri:
+    url: http://{{ owncast_ip }}:8089/api/admin/config/customstyles
+    method: POST
+    user: admin
+    password: abc123
+    force_basic_auth: yes
+    body_format: json
+    body:
+      value: "{{ config['instanceDetails']['customStyles']}}"
+- name: set stream title
+  uri:
+    url: http://{{ owncast_ip }}:8089/api/admin/config/streamtitle
+    method: POST
+    user: admin
+    password: abc123
+    force_basic_auth: yes
+    body_format: json
+    body:
+      value: "{{ config['instanceDetails']['streamTitle']}}"
+- name: configure the video stream variants
+  uri:
+    url: http://{{ owncast_ip }}:8089/api/admin/config/video/streamoutputvariants
+    method: POST
+    user: admin
+    password: abc123
+    force_basic_auth: yes
+    body_format: json
+    body:
+      value: "{{ config['videoSettings']['videoQualityVariants']}}"
+- name: configure the latency level
+  uri:
+    url: http://{{ owncast_ip }}:8089/api/admin/config/video/streamlatencylevel
+    method: POST
+    user: admin
+    password: abc123
+    force_basic_auth: yes
+    body_format: json
+    # have to do this way to pass required numeric type to the api
+    body: "{\"value\": {{ config['videoSettings']['latencyLevel'] | int }} }"
