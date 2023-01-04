@@ -32,3 +32,7 @@ ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i templates/out/hosts-owncast 
 ansible-playbook -i templates/out/hosts-owncast deploy/owncast-playbook.yml
 
 # ansible-playbook --ask-become-pass -i templates/out/hosts-nginx deploy/nginx-playbook.yml
+
+echo
+echo "Stream to: rtmp://$(terraform output -raw ip_address):1966/live" 
+echo "View at https://${OWNCAST_PROXY_HOST}"
