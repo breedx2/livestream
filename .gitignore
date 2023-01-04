@@ -1,4 +1,6 @@
 env.sh
+ansible-env/
+templates/out
 .terraform
 .terraform.lock.hcl
 terraform.tfstate
