@@ -1,0 +1,14 @@
+---
+- hosts: owncast
+  become: true
+  vars:
+    owncast_ip: "{{ lookup('env', 'OWNCAST_IP') }}"
+    owncast_stream_key: "{{ lookup('env', 'OWNCAST_STREAM_KEY') }}"
+    owncast_proxy_ip: "{{ lookup('env', 'OWNCAST_PROXY_IP') }}"
+    config: "{{ lookup('file', '../templates/out/owncast_config.json') | from_json }}"
+  tasks:
+    - import_tasks: debs.yml
+    - import_tasks: owncast-user.yml
+    - import_tasks: owncast-setup.yml
+    - import_tasks: owncast-configure.yml
+    - import_tasks: owncast-secure.yml
