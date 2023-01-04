@@ -61,7 +61,7 @@
     body_format: json
     body:
       value: "{{ config['instanceDetails']['extraPageContent']}}"
-- name: set custom css to fix the volume slider
+- name: add custom css
   uri:
     url: http://{{ owncast_ip }}:8089/api/admin/config/customstyles
     method: POST
@@ -70,7 +70,7 @@
     force_basic_auth: yes
     body_format: json
     body:
-      value: "{{ config['instanceDetails']['customStyles']}}"
+      value: "{{ extra_css }}"
 - name: set stream title
   uri:
     url: http://{{ owncast_ip }}:8089/api/admin/config/streamtitle
