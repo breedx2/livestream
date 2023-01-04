@@ -1,0 +1,22 @@
+---
+- name: make data dir
+  file:
+    path: /home/owncast/owncast-data
+    state: directory
+    owner: owncast
+    group: owncast
+- name: copy runscript
+  copy:
+    src: owncast-run.sh
+    dest: /home/owncast/owncast-run.sh
+    owner: owncast
+    group: owncast
+    mode: 0755
+- name: copy logo/icon
+  copy:
+    src: logo.png
+    dest: /home/owncast/owncast-data/logo.png
+    owner: owncast
+    group: owncast
+- name: start owncast
+  ansible.builtin.command: /home/owncast/owncast-run.sh

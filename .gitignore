@@ -1,1 +1,7 @@
-client/node_modules
+env.sh
+ansible-env/
+templates/out
+.terraform
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup

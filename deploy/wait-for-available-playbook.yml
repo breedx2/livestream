@@ -1,0 +1,7 @@
+---
+- hosts: owncast
+  gather_facts: no
+  tasks:
+  - name: Wait up to 2 minutes for ssh to be available
+    wait_for_connection:
+      timeout: 120

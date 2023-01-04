@@ -1,0 +1,6 @@
+all:
+  hosts:
+    proxy:
+      ansible_host: {{ site }}
+      ansible_ssh_port: {{ port }}
+      ansible_ssh_user: {{ user }}

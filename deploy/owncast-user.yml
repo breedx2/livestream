@@ -1,0 +1,13 @@
+---
+- name: create owncast user
+  ansible.builtin.user:
+    name: owncast
+    comment: owncast
+    groups: docker
+    shell: /bin/bash
+- name: set ssh key
+  ansible.posix.authorized_key:
+    user: owncast
+    state: present
+    # Todo: this could be a little more flexible. Something like ssh-copy-id would be great here
+    key: "{{ lookup('file', '/home/' + lookup('env', 'USER') + '/.ssh/id_rsa.pub') }}"
