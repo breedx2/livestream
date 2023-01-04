@@ -1,0 +1,28 @@
+---
+- name: set up the stream key
+  uri:
+    url: http://{{ owncast_ip }}:8089/api/admin/config/key
+    method: POST
+    user: admin
+    password: abc123
+    force_basic_auth: yes
+    body_format: json
+    body:
+      value: "{{ owncast_stream_key }}"
+# - name: only allow web from reverse proxy host
+#   ansible.builtin.iptables:
+#     chain: DOCKER-USER
+#     action: insert
+#     protocol: tcp
+#     in_interface: eth0
+#     destination_port: 8080
+#     source: "!{{ owncast_proxy_ip }}"
+#     jump: DROP
+# - name: only allow streaming from localhost
+#   ansible.builtin.iptables:
+#     chain: DOCKER-USER
+#     action: insert
+#     protocol: tcp
+#     destination_port: 1935
+#     source: "!127.0.0.1"
+#     jump: DROP
